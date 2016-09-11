@@ -8,9 +8,9 @@ $libDir = dirname(__FILE__) . '/lib/Saml2/';
 $extlibDir = dirname(__FILE__) . '/extlib/';
 
 // Load composer
-if (file_exists('vendor/autoload.php')) {
-    require 'vendor/autoload.php';
-}
+// if (file_exists('vendor/autoload.php')) {
+//     require 'vendor/autoload.php';
+// }
 
 // Load now external libs
 require_once $extlibDir . 'xmlseclibs/xmlseclibs.php';
