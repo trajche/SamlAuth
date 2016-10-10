@@ -9,4 +9,3 @@ Download the plugin and upload it to the /plugins directory of your Kanboard ins
 
 ## Contributors
 * [Trajche](http://tj.mk) Kralev
-* Filip Petkovski
