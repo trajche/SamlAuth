@@ -74,7 +74,7 @@ class SamlAuth extends Base implements AuthenticationProviderInterface, PreAuthe
 
 
                   //Get attributes for SAML from configModel
-                  $atrb_email = $this->configModel->get('samlauth_name_attribute');
+                  $atrb_email = $this->configModel->get('samlauth_email_attribute');
                   $atrb_username = $this->configModel->get('samlauth_username_attribute');
                   $atrb_firstname = $this->configModel->get('samlauth_firstname_attribute');
                   $atrb_lastname = $this->configModel->get('samlauth_lastname_attribute');
