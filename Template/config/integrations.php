@@ -18,6 +18,12 @@
   <?= $this->form->label(t('Technical Contact (Email)'), 'samlauth_techcontact_email') ?>
   <?= $this->form->text('samlauth_techcontact_email', $values, array(''), array('required', 'placeholder="trajche@kralev.eu"')) ?>
 
+  <?= $this->form->label(t('SP Certificate'), 'samlauth_sp_cert') ?>
+  <?= $this->form->textarea('samlauth_sp_cert', $values, array(), array('placeholder=""')) ?>
+
+  <?= $this->form->label(t('SP Certificate Private Key'), 'samlauth_sp_key') ?>
+  <?= $this->form->textarea('samlauth_sp_key', $values, array(), array('placeholder=""')) ?>
+
   <hr style="margin:20px 0;">
 
   <h3>Identity Provider Configuration</h3>
