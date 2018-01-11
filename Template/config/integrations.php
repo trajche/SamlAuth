@@ -42,13 +42,9 @@
   <hr style="margin:20px 0;">
 
   <h3>Identity Provider Attribute Mapping</h3>
-  <?= $this->form->label(t('First-name Attribute'), 'samlauth_firstname_attribute') ?>
-  <?= $this->form->text('samlauth_firstname_attribute', $values, array(), array('placeholder="fname"')) ?>
-  <p class="form-help"><?= t('Enter the attribute that is returned by your IDP. Default is "fname"') ?></p>
-
-  <?= $this->form->label(t('Last-name Attribute'), 'samlauth_lastname_attribute') ?>
-  <?= $this->form->text('samlauth_lastname_attribute', $values, array(), array('placeholder="lname"')) ?>
-  <p class="form-help"><?= t('Enter the attribute that is returned by your IDP. Default is "lname"') ?></p>
+  <?= $this->form->label(t('Full name Attribute'), 'samlauth_fullname_attribute') ?>
+  <?= $this->form->text('samlauth_fullname_attribute', $values, array(), array('placeholder="fullname"')) ?>
+  <p class="form-help"><?= t('Enter the attribute that is returned by your IDP. Default is "fullname"') ?></p>
 
   <?= $this->form->label(t('Username Attribute'), 'samlauth_username_attribute') ?>
   <?= $this->form->text('samlauth_username_attribute', $values, array(), array('placeholder="username"')) ?>

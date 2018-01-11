@@ -76,35 +76,23 @@ class SamlAuth extends Base implements AuthenticationProviderInterface, PreAuthe
                   //Get attributes for SAML from configModel
                   $atrb_email = $this->configModel->get('samlauth_email_attribute');
                   $atrb_username = $this->configModel->get('samlauth_username_attribute');
-                  $atrb_firstname = $this->configModel->get('samlauth_firstname_attribute');
-                  $atrb_lastname = $this->configModel->get('samlauth_lastname_attribute');
+                  $atrb_fullname = $this->configModel->get('samlauth_fullname_attribute');
                   $atrb_replacer = $this->configModel->get('samlauth_replace_attribute');
 
                   //Get user information via specified attributes
                   $email =  $samlResponse->getAttributes()["$atrb_email"]['0'];
                   $username = $samlResponse->getAttributes()["$atrb_username"]['0'];
-                  $firstname = $samlResponse->getAttributes()["$atrb_firstname"]['0'];
-                  $lastname = $samlResponse->getAttributes()["$atrb_lastname"]['0'];
+                  $fullname = $samlResponse->getAttributes()["$atrb_fullname"]['0'];
 
                   //Replace text for a clean username
                   if(!empty($atrb_replacer)) {
                     $username = str_replace($atrb_replacer,"", $username);
                   }
-                  //$username = str_replace("companyname\\","", $samlResponse->getNameId());
 
-
-                  //Check if firstname & lastname is set
-                  if(!empty($firstname)) {
-                    $name .= $firstname;
-                    if(!empty($lastname)) {
-                      $name .= ' '.$lastname;
-                    }
-                  //Otherwise check if lastname
-                } elseif (!empty($lastname)){
-                    $name = $lastname;
-                  //Otherwise pass empty
-                  } else {
-                    $name = '';
+                  // If the full name is missing, fall back on the username; at least
+                  // we display something meaningful
+                  if (empty($fullname)) {
+                    $fullname = $username;
                   }
 
 
@@ -112,7 +100,7 @@ class SamlAuth extends Base implements AuthenticationProviderInterface, PreAuthe
                   if (!empty($username) && !empty($email)) {
 
                       //Create user by having email as username
-                      $this->userInfo = new SamlUserProvider($username, $email, $name);
+                      $this->userInfo = new SamlUserProvider($username, $email, $fullname);
                       return true;
 
                   } else {
