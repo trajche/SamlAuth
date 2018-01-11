@@ -2,14 +2,15 @@
 <div class="listing">
 
   <h3>Service Provider Configuration (Kanboard Instance)</h3>
+
   <?= $this->form->label(t('SP Entity ID'), 'samlauth_sp_entity_id') ?>
   <?= $this->form->text('samlauth_sp_entity_id', $values, array(), array('required')) ?>
 
   <?= $this->form->label(t('Single Signon Service'), 'samlauth_sp_signon') ?>
-  <?= $this->form->text('samlauth_sp_signon', $values, array('placeholder="http://your-kanboard-url.com"')) ?>
+  <?= $this->form->text('samlauth_sp_signon', $values, array(''), array('placeholder="http://your-kanboard-url.com"')) ?>
 
   <?= $this->form->label(t('Single Logout Service'), 'samlauth_sp_signout') ?>
-  <?= $this->form->text('samlauth_sp_signout', $values, array('placeholder="http://your-kanboard-url.com/logout"')) ?>
+  <?= $this->form->text('samlauth_sp_signout', $values, array(''), array('placeholder="http://your-kanboard-url.com/logout"')) ?>
 
   <?= $this->form->label(t('Technical Contact (Name)'), 'samlauth_techcontact_name')   ?>
   <?= $this->form->text('samlauth_techcontact_name', $values, array(''), array('required', 'placeholder="Trajche Kralev"')) ?>
@@ -21,13 +22,13 @@
 
   <h3>Identity Provider Configuration</h3>
   <?= $this->form->label(t('IDP Entity ID'), 'samlauth_idp_entity_id') ?>
-  <?= $this->form->text('samlauth_idp_entity_id', $values, array(), array('required')) ?>
+  <?= $this->form->text('samlauth_idp_entity_id', $values, array(''), array('required')) ?>
 
   <?= $this->form->label(t('Single Signon Service'), 'samlauth_idp_signon') ?>
-  <?= $this->form->text('samlauth_idp_signon', $values, array('placeholder="http://youridpurl.com/uas/SingleSignOnService"')) ?>
+  <?= $this->form->text('samlauth_idp_signon', $values, array(''), array('placeholder="http://youridpurl.com/uas/SingleSignOnService"')) ?>
 
   <?= $this->form->label(t('Single Logout Service'), 'samlauth_idp_signout') ?>
-  <?= $this->form->text('samlauth_idp_signout', $values, array('placeholder="http://youridpurl.com/uas/SingleSignOutService"')) ?>
+  <?= $this->form->text('samlauth_idp_signout', $values, array(''), array('placeholder="http://youridpurl.com/uas/SingleSignOutService"')) ?>
 
   <?= $this->form->label(t('IDP Certificate'), 'samlauth_idp_cert') ?>
   <?= $this->form->textarea('samlauth_idp_cert', $values, array(), array('placeholder=""')) ?>
