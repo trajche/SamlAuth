@@ -40,5 +40,6 @@ However, since using Kanboard with MySQL/MariaDB requires PHP 7.1, if you follow
 ```
 
 ## Contributors
-* [Trajche](http://tj.mk) Kralev
-* Pietro Saccardi
+* Trajche Kralev (trajche)
+* Pietro Saccardi (LizardM4)
+* smacz42
