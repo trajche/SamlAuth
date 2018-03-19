@@ -22,8 +22,8 @@ class SamlSettings {
     $sp['techname'] = $this->configModel->get('samlauth_techcontact_name');
     $sp['techemail'] = $this->configModel->get('samlauth_techcontact_email');
 
-    $sp['privatecert'] = file_get_contents('/var/kanboard-certs/sp-private.crt');
-    $sp['publiccert'] = file_get_contents('/var/kanboard-certs/sp-public.crt');
+    $sp['privatekey'] = $this->configModel->get('samlauth_sp_key');
+    $sp['certificate'] = $this->configModel->get('samlauth_sp_cert');
 
     $login = htmlspecialchars($sp['signon'], ENT_XML1);
     $logout = htmlspecialchars($sp['signout'], ENT_XML1);
@@ -33,7 +33,7 @@ class SamlSettings {
     $idp['signon'] = $this->configModel->get('samlauth_idp_signon');
     $idp['signout'] = $this->configModel->get('samlauth_idp_signout');
 
-    $idp['publiccert'] = file_get_contents('/var/kanboard-certs/idp-public.crt');
+    $idp['certificate'] = $this->configModel->get('samlauth_idp_cert');
 
 
     $settingsInfo = array(
@@ -65,8 +65,8 @@ class SamlSettings {
           ),
           //'NameIDFormat' => 'urn:oasis:names:tc:SAML:2.0:nameid-format:entity',
           'NameIDFormat' => 'urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified',
-          'x509cert' => $sp['publiccert'],
-          'privateKey' => $sp['privatecert'],
+          'x509cert' => $sp['certificate'],
+          'privateKey' => $sp['privatekey'],
       ),
       'idp' => array(
           'entityId' => $idp['entityid'],
@@ -77,7 +77,7 @@ class SamlSettings {
           'singleLogoutService' => array(
               'url' => $idp['signout'],
           ),
-          'x509cert' => $idp['publiccert'],
+          'x509cert' => $idp['certificate'],
       ),
     );
     return $settingsInfo;
