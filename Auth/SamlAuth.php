@@ -100,7 +100,7 @@ class SamlAuth extends Base implements AuthenticationProviderInterface, PreAuthe
                   if (!empty($username) && !empty($email)) {
 
                       //Create user by having email as username
-                      $this->userInfo = new SamlUserProvider($username, $email, $fullname);
+                      $this->userInfo = new SamlUserProvider($username, $email, $fullname, 'app-user');
                       return true;
 
                   } else {
