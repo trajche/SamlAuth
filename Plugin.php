@@ -44,7 +44,7 @@ class Plugin extends Base
 
     public function getPluginHomepage()
     {
-        return 'http://tj.mk';
+        return 'https://github.com/trajche/SamlAuth';
     }
 
 

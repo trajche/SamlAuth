@@ -9,16 +9,6 @@ Download the plugin and upload it to the /plugins directory of your Kanboard ins
 
 After filling out all of the fields, click the **Save** button before clicking **Generate Metadata**.
 
-## Requirements
-
-This plugin expects to find the private/public certs for the server as well as the public cert for the IDP in `/var/kanboard-certs`. These should be called:
-
-* `sp-private.crt`
-* `sp-public.crt`
-* `idp-public.crt`
-
-They should also be readable by your webserver user. (e.g. `apache`, `nginx`, etc.)
-
 ### Webserver
 
 This plugin expects to have the [DOM extension](https://secure.php.net/en/dom) for php. This can be installed on Debian / Ubuntu using:
