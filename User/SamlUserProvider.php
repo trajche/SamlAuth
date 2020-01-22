@@ -31,17 +31,25 @@ class SamlUserProvider implements UserProviderInterface
     protected $name = '';
 
     /**
+     * User profile if the user already exists
+     *
+     * @access private
+     * @var array
+     */
+    private $userProfile = array();
+
+    /**
      * Constructor
      *
      * @access public
      * @param  string $username
      */
-    public function __construct($username, $email, $name, $role)
+    public function __construct($username, $email, $name, array $userProfile = array())
     {
         $this->username = $username;
         $this->email = $email;
         $this->name = $name;
-        $this->role = $role;
+        $this->userProfile = $userProfile;
     }
 
     /**
@@ -96,8 +104,10 @@ class SamlUserProvider implements UserProviderInterface
      */
     public function getRole()
     {
-        //return Role::APP_USER;
-        return $this->role;
+        if(isset($this->userProfile['role'])){
+            return $this->userProfile['role'];
+        }
+        return Role::APP_USER;
     }
 
     /**
