@@ -36,7 +36,7 @@ class SamlUserProvider implements UserProviderInterface
      * @access public
      * @param  string $username
      */
-    public function __construct($username, $email, $name, $role)
+    public function __construct($username, $email, $name, $role = null)
     {
         $this->username = $username;
         $this->email = $email;
@@ -97,7 +97,7 @@ class SamlUserProvider implements UserProviderInterface
     public function getRole()
     {
         //return Role::APP_USER;
-        return $this->role;
+        return is_null($this->role) ? Role::APP_USER : $this->role;
     }
 
     /**
